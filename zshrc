@@ -19,7 +19,7 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$brew_prefix/share/zsh-syntax-highlighting/highlighters
 
 source $brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $brew_prefix/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
