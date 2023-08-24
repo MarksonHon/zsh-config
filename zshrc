@@ -1,12 +1,20 @@
 if command -v /usr/local/bin/brew > /dev/null; then
     brew_prefix="$(/usr/local/bin/brew --prefix)"
+    eval "$(/usr/local/bin/brew shellenv)"
 elif command -v /opt/homebrew/bin/brew > /dev/null; then
     brew_prefix="$(/opt/homebrew/bin/brew --prefix)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 elif command -v /home/linuxbrew/.linuxbrew/bin/brew > /dev/null; then
     brew_prefix="$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 eval "$(oh-my-posh init zsh --config $brew_prefix/share/oh-my-posh/themes/quick-term.omp.json)"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
+setopt SHARE_HISTORY
 
 ## Set alias 
 alias cp="cp -i"                                                # Confirm before overwriting something
