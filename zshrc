@@ -9,8 +9,6 @@ elif command -v /home/linuxbrew/.linuxbrew/bin/brew > /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-eval "$(oh-my-posh init zsh --config $brew_prefix/share/oh-my-posh/themes/quick-term.omp.json)"
-
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000
@@ -20,8 +18,8 @@ setopt SHARE_HISTORY
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
 alias ls='ls --color=auto'                                      # Set colored output of ls
+alias ip='ip -c'
 
 autoload -Uz compinit
 compinit
@@ -29,6 +27,7 @@ zstyle ':completion:*' menu select
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$brew_prefix"/share/zsh-syntax-highlighting/highlighters
 
+source "$brew_prefix"/share/powerlevel10k/powerlevel10k.zsh-theme
 source "$brew_prefix"/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source "$brew_prefix"/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source "$brew_prefix"/share/zsh-history-substring-search/zsh-history-substring-search.zsh
